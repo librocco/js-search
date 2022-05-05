@@ -2,12 +2,12 @@
   "name": "js-search",
   "version": "2.0.0",
   "description": "JS Search is an efficient, client-side search library for JavaScript and JSON objects",
-  "main": "./dist/umd/js-search.js",
-  "module": "./dist/esm/js-search.js",
+  "main": "./source/index.ts",
+  "module": "./source/index.ts",
   "exports": {
     ".": {
       "require": "./dist/umd/js-search.js",
-      "import": "./dist/esm/js-search.js"
+      "import": "./source/index.ts"
     }
   },
   "files": [
@@ -25,12 +25,12 @@
     "rimraf": "^2.5.4",
     "rollup": "^2.0.5",
     "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-terser": "^5.3.0"
+    "rollup-plugin-terser": "^5.3.0",
+    "typescript": "~4.6.4"
   },
   "scripts": {
-    "build:flow": "echo \"// @flow\n\nexport * from '../../source'\" > dist/umd/js-search.js.flow",
-    "build": "rimraf dist && rollup -c && yarn build:flow",
-    "test": "flow check && jest",
+    "build": "rimraf dist && rollup -c",
+    "test": "jest",
     "tdd": "jest --watch",
     "prepublishOnly": "yarn build"
   },
@@ -58,7 +58,7 @@
     "roots": [
       "./source"
     ],
-    "testRegex": "\\.test\\.js$",
+    "testRegex": "\\.test\\.ts$",
     "verbose": true
   }
 }
